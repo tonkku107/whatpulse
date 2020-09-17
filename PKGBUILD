@@ -1,26 +1,29 @@
+# Maintainer: Tonkku <contact@tonkku.me>
 # Maintainer: Thor K. H. <thor alfakrøll roht dott no>
 # Contributor: Tim Besard <tim $dot$ besard $at$ gmail $dot$ com>
 # Contributor: Jelle van der Waa <jellevdwaa @ gmail.com>
 # Contributor: Pieter Kokx <pieter $at$ kokx $dot$ .nl>
 
 pkgname=whatpulse
-pkgver=2.8.4
+pkgver=2.8.3
 pkgrel=1
 pkgdesc="Measures your keyboard, mouse and application usage, network traffic and uptime."
 arch=('x86_64')
 url=http://www.whatpulse.org
 # I have yet to find the actual licence, but alternatively: it's basically freeware
 license=(custom:whatpulse_tos)
-changelog="$pkgname.changelog"
 install="$pkgname.install"
-depends=(qt4)
+depends=('qt4' 'openssl-1.0')
 optdepends=(
     'libpcap: for capturing network statistics'
 )
-source=('whatpulse.desktop')
-source_x86_64=("http://static.whatpulse.org/files/whatpulse-linux-archlinux-64bit-$pkgver.tar.gz")
-sha256sums=('aba7e6b28ccebdb6115245dae1a7ca8e88afa2ecb1619037b66f65090a284363')
-sha256sums_x86_64=('763d603962db4a6e78d53ebbc7a2142419119ab3df40e28793ea7937260131eb')
+source=('whatpulse.desktop' 'whatpulse.sh')
+source_x86_64=("http://static.whatpulse.org/files/whatpulse-linux-ubuntu-64bit-$pkgver.tar.gz")
+sha256sums=(
+    'aba7e6b28ccebdb6115245dae1a7ca8e88afa2ecb1619037b66f65090a284363'
+    '114b42bcac68701cbdfc68a5bdb17fb676ccaf09ab488d14e2d1c0c15d4733de'
+)
+sha256sums_x86_64=('3fcc54781a74cd8a5a0e1ea6e2299c6fb518d436651c159d893cc76a50f46eef')
 
 build() {
 	# Extract the tiny, tiny bit of license/usage information that exists
@@ -30,9 +33,14 @@ build() {
 
 package() {
     cd $srcdir/
+
+    # Install the wrapper script
+    mkdir -p ${pkgdir}/usr/bin
+    install -m0755 whatpulse.sh ${pkgdir}/usr/bin/whatpulse
+
     # Install the binary
     mkdir -p ${pkgdir}/usr/bin
-    install -m0755 whatpulse ${pkgdir}/usr/bin/
+    install -m0755 whatpulse ${pkgdir}/usr/bin/whatpulse-bin
     # Install the freedesktop shortcut
     mkdir -p ${pkgdir}/usr/share/applications
     install -m0644 whatpulse.desktop ${pkgdir}/usr/share/applications/
