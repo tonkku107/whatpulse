@@ -6,7 +6,7 @@
 
 pkgname=whatpulse
 pkgver=2.8.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Measures your keyboard, mouse and application usage, network traffic and uptime."
 arch=('x86_64')
 url=http://www.whatpulse.org
@@ -21,7 +21,7 @@ source=('whatpulse.desktop' 'whatpulse.sh')
 source_x86_64=("http://static.whatpulse.org/files/whatpulse-linux-ubuntu-64bit-$pkgver.tar.gz")
 sha256sums=(
     'aba7e6b28ccebdb6115245dae1a7ca8e88afa2ecb1619037b66f65090a284363'
-    '114b42bcac68701cbdfc68a5bdb17fb676ccaf09ab488d14e2d1c0c15d4733de'
+    '1bfbf7fe3ec37fe6e545518ea7e09287c4de100c3f843b9b6643a84ab9a24c4b'
 )
 sha256sums_x86_64=('3fcc54781a74cd8a5a0e1ea6e2299c6fb518d436651c159d893cc76a50f46eef')
 
