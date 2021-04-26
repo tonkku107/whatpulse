@@ -1,6 +1,6 @@
 pkgbase = whatpulse
 	pkgdesc = Measures your keyboard, mouse and application usage, network traffic and uptime.
-	pkgver = 3.1
+	pkgver = 3.2
 	pkgrel = 1
 	url = http://www.whatpulse.org
 	install = whatpulse.install
@@ -8,9 +8,9 @@ pkgbase = whatpulse
 	license = custom:whatpulse_tos
 	makedepends = squashfs-tools
 	depends = qt5-svg
-	source = https://static.whatpulse.org/files/linux/whatpulse-linux-3.1_amd64.snap
+	source = https://api.snapcraft.io/api/v1/snaps/download/iHVATX2faqAJciG5YGNM241W8fE8UvsF_7.snap
 	source = LICENSE
-	sha256sums = cfcb071f696a423a70607e533e865eae08c6bbe812f9e482311e600f9032ab0c
+	sha256sums = fdc059f2ef59e0d2941ae192035550796dc3a47735f4e354480d22b971022b3c
 	sha256sums = b6ce2dada6ac7514dd9b74682939a4b5960343411469676cafb0d27d1530ad02
 
 pkgname = whatpulse
